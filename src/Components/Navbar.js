@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux'
 function Navbar(){
 
     const items = useSelector((state)=> state.cart)
-    console.log(items.length)
+    console.log(items)
     return(
         <>
         

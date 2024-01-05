@@ -1,18 +1,33 @@
 
 import React from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+import {remove} from '../Store/cartSlice';
 function Cart(){
+
+    const items = useSelector((state)=> state.cart)
+    const dispatch = useDispatch()
+
+    const handleRemove=(itemId)=> {
+        dispatch(remove(itemId))
+    }
 
     return(
 
         <>
-        <h1 style={
+        
+        <div className="cartWrapper">
             {
-                display:"flex",
-                alignItems : "center",
-                justifyContent :"center"
+                items.map((item)=>{
+                   return <div className="cartCard">
+                   <img src={item.image} alt="img"/>
+                   <h5>{item.title}</h5>
+                   <h5>Price: ${item.price}</h5>
+                   <button className="remove-btn" onClick={()=>handleRemove(item.id)}>Remove</button>
+                   </div>
+                })
             }
-        }>This is Cart page</h1>
+        </div>
         </>
     );
 }

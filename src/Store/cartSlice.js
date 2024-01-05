@@ -6,11 +6,12 @@ const cartSlice = createSlice({
   reducers: {
     add(state, action) {  // The 'add' reducer function
       state.push(action.payload);  // Adds the payload of the action to the state array
-    }
+    },
+    remove(state, action) {  // The 'remove' reducer function
+      return state.filter((item) => item.id !== action.payload);
+    },
   }
 });
 
-export const { add } = cartSlice.actions;  // Extracting the 'add' action from the slice
+export const { add, remove } = cartSlice.actions;  // Extracting  'add' and 'remove' actions from the slice
 export default cartSlice.reducer;           // Exporting the reducer
-
-
