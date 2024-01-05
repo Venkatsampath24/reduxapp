@@ -20,7 +20,7 @@ const Product = () => {
       {
         products.map((product)=> {
             return <div className="card"> 
-            <img src={product.image}/>
+            <img src={product.image} alt="img"/>
             <h6>{product.title}</h6>
             <h5>Rs.{product.price}</h5>
             <button className="btn">Add to Cart</button>
