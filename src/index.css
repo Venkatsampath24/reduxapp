@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
-  background: rgb(147, 149, 57);
+  background: whitesmoke;
 }
 img {
   height: 80px;
@@ -29,6 +29,10 @@ img {
 
 .logo {
   font-weight: bold;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  background-color: lightgray;
   
 }
 
@@ -86,7 +90,7 @@ img {
 }
 .navLink {
   text-decoration: none;
-  color: blue;
+  color: black;
   margin-left: 20px;
   font-weight: bold;
   background-color: antiquewhite;
