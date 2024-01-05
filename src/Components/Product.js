@@ -1,37 +1,37 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import axios from 'axios'
+import React, { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 const Product = () => {
+  const [products, setProducts] = useState([]);
 
-       
-    const[ products , setProducts] = useState([]);
+  useEffect(() => {
+    const getProduct = async () => {
+      const result = await axios.get(`https://fakestoreapi.com/products`);
+      console.log(result);
+      setProducts(result.data);
+    };
+    getProduct();
+  }, []);
 
-    useEffect(()=> {
+  return (
+    <div>
+      <div className="productsWrapper">
+      {
+        products.map((product)=> {
+            return <div className="card"> 
+            <img src={product.image}/>
+            <h6>{product.title}</h6>
+            <h5>Rs.{product.price}</h5>
+            <button className="btn">Add to Cart</button>
+            </div> 
+        })
+      }
 
-        const getProducts= async()=>{
-            const res = await axios.get(`https://fakestoreapi.com/products`)
-            setProducts(res.data);
-            console.log(res);
-        }
-        getProducts();
-    },[])
-       
+      </div>
+      
+    </div>
+  );
+};
 
-       return (
-
-        <div>
-        <h1>Products</h1>
-        {
-            products.map((product)=>{
-                return <li key={product.id}>{product.title}</li>
-            })
-        }
-
-        
-        </div>
-      )
-
-}
-
-export default Product
+export default Product;
