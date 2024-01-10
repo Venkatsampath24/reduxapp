@@ -10,7 +10,6 @@ function Navbar(){
     console.log(items)
     return(
         <>
-        
         <div
          style={
             {
